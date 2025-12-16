@@ -3,8 +3,9 @@ import leia = require("readline-sync")
 import { sobre } from "./src/util/sobre"
 import { Produtos } from "./src/model/Produtos"
 import { ProdutoController } from "./src/Controller/ProdutoController"
-let opcao, numero, tipo: number
-let nomeDoProduto: string
+import { ProdutosCabelo } from "./src/model/ProdutosCabelo"
+let opcao, numero: number
+let nomeDoProduto, tipo: string
 
 do {
     console.log(`${colors.fg.magenta}`)
@@ -25,12 +26,12 @@ do {
             console.log("Cadrastrar Produtos: ")
             console.log(`Digite o tipo de Produto\n`)
             console.log(`1 - Produtos de cabelo`)
-            tipo = leia.questionInt("")
+            tipo = leia.question("")
             nomeDoProduto = leia.question(`Digite o nome do produto: `)
             switch (tipo) {
-                case 1:
+                case "1":
                     tipo = "Produtos de cabelo"
-                    Produtos.
+                    Produtos.cadastrar (new ProdutosCabelo(Produtos.gerarId(),tipo, nome))
                     break
                 default:
                     console.log("Digite a opcao valida.")
