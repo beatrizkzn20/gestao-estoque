@@ -13,17 +13,30 @@ export class ProdutoController implements ProdutoRepository {
         }
     }
     listarTodos(): void {
-
+        for (let Produtos of this.listaProdutos)
+            Produtos.visualizar()
     }
     cadastrar(produtos: Produtos): void {
-        this.listaProdutos.push (produtos)
+        this.listaProdutos.push(produtos)
         console.log(`Produto Id: ${produtos.id} cadastrado com sucesso!`)
     }
     atualizar(produtos: Produtos): void {
-
+        let buscarProduto = this.buscarNoArray(produtos.id)
+        if (buscarProduto != null) {
+            this.listaProdutos[this.listaProdutos.indexOf(buscarProduto)]
+            console.log("Produto ID: ${ produto.id } atualizado com sucesso!")
+        } else {
+            console.log("Produto ID: ${ produto.id } nao ofi encontrado!")
+        }
     }
     deletar(id: number): void {
-
+        let buscarProduto = this.buscarNoArray(id)
+        if (buscarProduto != null) {
+            this.listaProdutos.splice(this.listaProdutos.indexOf(buscarProduto))
+            console.log("O Produto ID: ${ id } foi deletado com Secesso!")
+        } else {
+            console.log(`O Produto ID: ${id} não foi encontrado! `)
+        }
     }
     public buscarNoArray(id: number): Produtos | null {
         for (let produtos of this.listaProdutos) {
