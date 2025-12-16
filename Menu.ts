@@ -35,7 +35,7 @@ do {
                     produtos.cadastrar(new ProdutosCabelo(produtos.gerarId(), tipo, nomeDoProduto, tipoDeCabelo))
                     break
                 default:
-                    console.log("Digite a opcao valida.")
+                    console.log("Digite a opcao valida!")
                     break
             }
             break
